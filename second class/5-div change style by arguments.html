@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参改变属性值</title>
+	<style type="text/css">
+        div{width:180px;height:180px;margin:0 auto;padding:10px;}
+		#div1{color:#fff;width:180px;height:180px;background:#000;margin:0 auto;padding:10px;}
+	</style>
+</head>
+<body>
+	<div>
+		<label>属性名：<input type="text" ></label><br><br>
+		<label>属性值：<input type="text" ></label><br><br>
+		<button id="ensure">确定</button>
+		<button id="reset">重置</button>
+	</div>
+	<div id="div1">红笺向壁字模糊，<br>忆共灯前呵手为伊书</div>
+
+	<script type="text/javascript">
+		var oSure = document.getElementById('ensure');
+		var oReset = document.getElementById('reset');
+		var aTxt = document.getElementsByTagName('input');
+		var oDiv = document.getElementById('div1');
+		var oStyle = oDiv.style;
+		oSure.onclick = function () {
+			var txt_name=aTxt[0].value;
+			var txt_value=aTxt[1].value;
+			oDiv.style[txt_name] = txt_value;
+		};
+		oReset.onclick = function () {
+			oDiv.style = oStyle;
+		};
+	</script>
+</body>
+</html>

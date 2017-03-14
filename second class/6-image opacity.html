@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片列表：鼠标移入/移出改变图片透明度</title>
+	<style type="text/css">
+		div{padding: 5px;width: 700px;margin: 0 auto;border: 1px solid black;overflow: hidden;padding:0 0 10px 10px;}
+		img{float:left;border:1px solid #ccc;margin:10px 10px 0 0;opacity: 0.5;
+		filter: alpha(opacity=50);cursor: crosshair;}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="image/1.jpg">
+		<img src="image/2.jpg">
+		<img src="image/3.jpg">
+		<img src="image/4.jpg">
+		<img src="image/5.jpg">
+		<img src="image/6.jpg">
+		<img src="image/7.jpg">
+		<img src="image/8.jpg">
+		<img src="image/9.jpg">
+		<img src="image/10.jpg">
+	</div>
+
+	<script type="text/javascript">
+		var aImg = document.getElementsByTagName('img');
+		for (var i = 0; i < aImg.length; i++) {
+			aImg[i].onmouseover = function () {
+				for (var j = 0; j < aImg.length; j++) {
+					aImg[j].style.opacity=0.5;
+					aImg[j].style.filter="alpha(opacity=50)";
+				}
+				this.style.opacity=1;
+				this.style.filter="alpha(opacity=100)";
+			};
+			aImg[i].onmouseout = function () {
+				this.style.opacity=0.5;
+				this.style.filter="alpha(opacity=50)";
+			};
+		}
+	</script>
+</body>
+</html>

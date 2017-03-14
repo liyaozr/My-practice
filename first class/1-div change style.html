@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DIV</title>
+	<style type="text/css">
+		#demo{width: 100px;height: 100px;background-color: black;margin-top: 20px;}
+	</style>
+</head>
+<body>
+	<button id="toWidth">变宽</button>
+	<button id="toHeight">变高</button>
+	<button id="changeColor">变色</button>
+	<button id="hidden">隐藏</button>
+	<button id="reset">重置</button>
+	<div id="demo"></div>
+
+	<script type="text/javascript">
+		/*我的代码 评价：中规中矩，比较low
+		var oWidth = document.getElementById('toWidth');
+		var oHeight = document.getElementById('toHeight');
+		var oColor = document.getElementById('changeColor');
+		var oHidden = document.getElementById('hidden');
+		var oReset = document.getElementById('reset');
+		var oDemo = document.getElementById('demo');
+		var oStyle = oDemo.style;
+		oWidth.onclick=function () {
+			oDemo.style.width = "200px";
+		};
+		oHeight.onclick=function () {
+			oDemo.style.height = "200px";
+		};
+		oColor.onclick=function () {
+			oDemo.style.backgroundColor = "red";
+		};
+		oHidden.onclick=function () {
+			oDemo.style.display = "none";
+		};
+		oReset.onclick=function () {
+			oDemo.style = oStyle;
+		};*/
+			// 参考代码
+			var changeStyle = function (elem, attr, value){
+				elem.style[attr] = value;
+			};
+			window.onload = function (){
+				var oBtn = document.getElementsByTagName("button");
+				var oDiv = document.getElementById("demo");
+				var oAtt = ["width","height","background","display","display"];
+				var oVal = ["200px","200px","red","none","block"];
+
+				for (var i = 0; i < oBtn.length; i++){
+					oBtn[i].index = i;
+					oBtn[i].onclick = function (){
+						this.index == oBtn.length - 1 && (oDiv.style.cssText = "");
+						// 关于上面那一句的解释
+						// 我们知道&&操作是短路操作，所以这句话的意思是，如果(this.index == oBtn.length - 1 )成立，那么就执行(oDiv.style.cssText = "")
+						changeStyle(oDiv, oAtt[this.index], oVal[this.index]);
+					};
+				}
+			};
+
+	</script>
+</body>
+</html>

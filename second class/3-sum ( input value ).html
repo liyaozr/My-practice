@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>输入数字求和</title>
+    <style type="text/css">
+		div { width: 600px; height: 300px; margin: 0 auto; font-size: 12px; }
+		p { color: red; }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label>
+            <input type="text"> 输入数字求和，数字之间用半角","号分隔</label>
+        <br>
+        <br>
+        <button>求和</button>
+        <p></p>
+    </div>
+    <script type="text/javascript">
+    var oIput = document.getElementsByTagName('input')[0];
+    var oBtn = document.getElementsByTagName('button')[0];
+    var oP = document.getElementsByTagName('p')[0];
+
+    function sum() {
+        var sum = 0;
+        var oTxt = oIput.value;
+        var arr = oTxt.split(",");
+        for (var i = 0; i < arr.length; i++) {
+            sum += Number(arr[i]);
+        }
+        return sum;
+    }
+    oBtn.onclick = function() {
+        result = sum();
+        oP.innerHTML = result;
+    };
+
+/*    window.onload = function() {
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oInput = document.getElementsByTagName("input")[0];
+        var oStrong = document.getElementsByTagName("strong")[0];
+        oInput.onkeyup = function() {
+            this.value = this.value.replace(/[^(\d)|(,)]/,"");
+        };
+        oBtn.onclick = function() {
+            var sum = 0;
+            var oInput = document.getElementsByTagName("input")[0].value.split(",");
+            for (var i in oInput) {
+                sum += parseInt(oInput[i]);
+            }
+            oStrong.innerHTML = sum;
+        };
+    };*/
+    </script>
+</body>
+
+</html>

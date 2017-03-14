@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易JS年历</title>
+	<style type="text/css">
+		#wrap{background: #eaeaea; width: 240px;text-align: center;padding: 0 0 10px 10px;font-family: Tahoma;font-size: 13px; margin: 20px auto;}
+		#month{overflow: hidden;}
+        #month div{width: 48px;height: 48px;float: left;background: #424242;color: #fff;margin: 10px 10px 0 0;border: 1px solid #424242;cursor: pointer;}
+        #month .mon{background: #fff;border: 1px solid #000;color: #ff9ecb;}
+        #month div strong{display: block;margin: 4px 0;}
+        #descri{width: 230px;height: 50px;background: #f1f1f1;border: 1px solid #fff;margin-top: 10px;text-align: left;text-indent: 3px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oMonth = document.getElementById('month');
+			var aMon = oMonth.getElementsByTagName('div');
+			var oDescri = document.getElementById('descri');
+			var arr=[
+					"元旦：1月1日至3日放假三天。",
+					"春节：2月2日至8日放假7天。",
+					"妇女节：3月8日妇女节，与我无关。",
+					"清明节：4月3日至5日放假3天",
+					"劳动节：4月30日至5月2日放假3天。",
+					"端午节：6月4日至6日放假3天。",
+					"小暑：7月7日小暑。不放假。",
+					"七夕节：8月6日七夕节。不放假。",
+					"中秋节：9月10日至12日放假3天。",
+					"国庆节：10月1日至7日放假7天。",
+					"立冬：11月8日立冬。不放假。",
+					"艾滋病日:12月1日<br />废除奴隶制国际日:12月2日。"
+				];
+			var date=new Date();
+			var n = date.getMonth();
+			aMon[n-1].className="mon";
+			oDescri.innerHTML=n+"月节日<br>"+arr[n-1];
+			for (var i = 0; i < aMon.length; i++) {
+				aMon[i].index = i;
+				aMon[i].onmouseover = function () {
+					for(var j = 0;j < aMon.length;j++){
+						aMon[j].className = "";
+					}
+					this.className = "mon";
+					oDescri.innerHTML=this.index+1+"月节日<br>"+arr[this.index];
+				};
+			}
+
+		};
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="month">
+			<div><strong>1</strong>JAN</div>
+			<div><strong>2</strong>FER</div>
+			<div><strong>3</strong>MAR</div>
+			<div><strong>4</strong>APR</div>
+			<div><strong>5</strong>MAY</div>
+			<div><strong>6</strong>JUN</div>
+			<div><strong>7</strong>JUL</div>
+			<div><strong>8</strong>AUG</div>
+			<div><strong>9</strong>SEP</div>
+			<div><strong>10</strong>OCT</div>
+			<div><strong>11</strong>NOV</div>
+			<div><strong>12</strong>DEC</div>
+		</div>
+		<div id="descri">
+		</div>
+	</div>
+</body>
+</html>

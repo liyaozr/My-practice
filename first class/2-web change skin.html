@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<style type="text/css">
+	    *{margin: 0;padding: 0;}
+		.wrap{width: 600px;margin: 20px auto;}
+		.wrap button{width: 20px;height: 20px;display: inline-block;cursor: pointer;border: 5px solid;}
+		#btn1{background-color: #f00;border-color:#f00}
+		#btn2{background-color: #080;border-color: #080}
+		#btn3{background-color: #000;border-color: #000}
+		.wrap ul{list-style: none;margin-top: 20px;letter-spacing: -8px;}
+		.wrap ul li{display: inline-block;width: 50px;font-size: 14px;text-align: center;padding: 5px 10px;border: 1px solid #fff;letter-spacing:normal;}
+		.wrap ul li a{text-decoration: none;color: #fff;}
+	</style>
+	<link rel="stylesheet" type="text/css" href="CSS/red.css" id="cssStyle">
+</head>
+<body>
+	<div class="wrap">
+		<button id="btn1"></button>
+		<button id="btn2"></button>
+		<button id="btn3"></button>
+		<ul>
+			<li><a href="#">新闻</a></li>
+			<li><a href="#">娱乐</a></li>
+			<li><a href="#">体育</a></li>
+			<li><a href="#">电影</a></li>
+			<li><a href="#">音乐</a></li>
+			<li><a href="#">旅游</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var abtn = document.getElementsByTagName('button');
+		var cssStyle = document.getElementById('cssStyle');
+		var aHref=["CSS/red.css","CSS/green.css","CSS/black.css"];
+		var bacgColor=["#f00","#080","#000"];
+		for (var i = 0; i < abtn.length; i++) {
+			abtn[i].index=i;
+			abtn[i].onclick=function () {
+				for (var i = 0; i < abtn.length; i++) {
+					abtn[i].style.cssText = "";
+				}
+				cssStyle.href=aHref[this.index];
+				this.style.border="5px solid "+bacgColor[this.index];
+				this.style.backgroundColor="#fff";
+			};
+		}
+
+		// 参考代码：
+/*		window.onload = function (){
+			var oLink = document.getElementsByTagName("link")[0];
+			var oSkin = document.getElementById("skin").getElementsByTagName("li");
+
+			for(var i = 0; i< oSkin.length; i++){
+				oSkin[i].onclick = function (){
+					for(var p in oSkin) oSkin[p].className = "";
+					this.className = "current";
+					oLink['href'] = this.id + ".css";
+				};
+			}
+		};*/
+
+	</script>
+</body>
+</html>

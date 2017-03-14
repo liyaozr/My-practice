@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>提示框效果</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;font-size: 12px;text-align: center;font-weight: bold;}
+		#wrap{width: 570px;margin: 30px auto;border: 1px solid #000;overflow: hidden;padding: 20px 0 20px 20px;}
+		#wrap h2{font-size: 18px;margin-bottom: 10px;}
+		#wrap div{float: left;margin-right: 10px;margin-top: 10px; width: 100px;height: 100px;border: 1px solid black;background: #f0f0f0;position: relative;}
+		#wrap img{position: absolute;top: -14px;left: -14px;display: none;border: 2px solid #000;z-index: 999;}
+		#wrap div p{margin-top: 20px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oWrap = document.getElementById('wrap');
+			var aDiv = oWrap.getElementsByTagName('div');
+			var aImg = document.getElementsByTagName('img');
+			for (var i = 0; i < aDiv.length; i++) {
+				aDiv[i].index = i;
+				aDiv[i].onmouseover = function () {
+					for (var j = 0; j < aDiv.length; j++) {
+						aImg[j].style.display="none";
+					}
+					aImg[this.index].style.display = "block";
+				};
+
+				aImg[i].onmouseout = function () {
+					this.style.display="none";
+				};
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<h2>名车车标展示-鼠标移过显示车标</h2>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div class="active">
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+		<div>
+		     <p>BMW</p>
+		     <p>宝马汽车</p>
+		     <img src="image/1.jpg">
+		</div>
+	</div>
+</body>
+</html>

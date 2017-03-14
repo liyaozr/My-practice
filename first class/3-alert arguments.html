@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数接受参数并弹出</title>
+	<style type="text/css">
+		.wrap{width: 200px;margin: 0 auto;text-align: center;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<input type="text" id="txt1"><br>
+	<input type="text" id="txt2"><br>
+	<input type="button" value="传参" id="btn">
+
+	<script type="text/javascript">
+		var oTxt1 = document.getElementById('txt1');
+		var oTxt2 = document.getElementById('txt2');
+		var oBtn = document.getElementById('btn');
+		function alertArg(a,b) {
+			alert(a.value);
+			alert(b.value);
+		}
+		oBtn.onclick=function () {
+			alertArg(oTxt1,oTxt2);
+		};
+	</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度输入法</title>
+	<style type="text/css">
+	    body,ul,li,button{margin:0;padding:0;}
+		div{width: 60px;margin: 20px auto;}
+		ul{display: none; list-style: none;border: 1px solid #9a99ff;margin-top: 10px;}
+		li{display: block;width: 60px;height: 22px;line-height: 20px;font-size: 12px;color: #00c;text-indent: 5px;cursor: pointer;}
+		#close{border-top: 1px solid #9a99ff;}
+		a{;display:block;text-decoration:none;}
+		a:hover{background:#d9e1f6;}
+
+	</style>
+</head>
+<body>
+	<div>
+		<input type="button" value="输入法" id="btn">
+		<ul>
+			<li><a href="javascript:;">手写</a></li>
+			<li><a href="javascript:;">拼音</a></li>
+			<li id="close"><a href="javascript:;">关闭</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var oBtn = document.getElementById('btn');
+		var oUlist = document.getElementsByTagName('ul')[0];
+		var oClose = document.getElementById('close');
+		var flag = true;
+
+		function openIput() {
+			oUlist.style.display = "block";
+		}
+		function closeIput() {
+			oUlist.style.display = "none";
+		}
+		oBtn.onclick=function () {
+			if (flag) {
+				openIput();
+				flag = false;
+			}else{
+				closeIput();
+				flag = true;
+			}
+		};
+		oClose.onclick=function () {
+			closeIput();
+			flag = true; // 这里如果不写这一句，会有一个小bug
+		};
+
+		// 参考写法：
+/*		var oBtn = document.getElementsByTagName("button")[0];
+		var oIme = document.getElementById("ime");
+		var oClose = document.getElementById("close");
+		var style = oIme.style;
+		oBtn.onclick = function(){
+			style.display = style.display == "block" ? "none" : "block";
+		};
+		oClose.onclick = function(){
+			style.display = "none";
+		};*/
+
+	</script>
+</body>
+</html>
