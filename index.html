@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS练习列表</title>
+	<style type="text/css">
+		a {
+		  position: relative;
+		  color: #9248bc;
+		}
+		a:before, a:after {
+		  position: absolute;
+		  top: 50%;
+		  content: '';
+		  width: 20px;
+		  height: 20px;
+		  background: #7f28b0;
+		  border-radius: 50%;
+		}
+		a:before {
+		  left: -20px;
+		  -webkit-transform: translate(-50%, -50%);
+		          transform: translate(-50%, -50%);
+		  /*     animation: criss-cross-left 0.8s reverse; */
+		}
+		a:after {
+		  right: -20px;
+		  -webkit-transform: translate(50%, -50%);
+		          transform: translate(50%, -50%);
+		  /*     animation: criss-cross-right 0.8s reverse; */
+		}
+		a:hover:before, a:hover:after {
+		  /*       @include size($btn-width); */
+		}
+		a:hover:before {
+		  -webkit-animation: criss-cross-left 0.8s both;
+		          animation: criss-cross-left 0.8s both;
+		}
+		a:hover:after {
+		  -webkit-animation: criss-cross-right 0.8s both;
+		          animation: criss-cross-right 0.8s both;
+		}
+	</style>
+</head>
+<body>
+	<a href="https://thanks-moon.github.io/JS-practice/first%20class/1-div%20change%20style.html">控制div属性</a><br>
+	<a href="https://thanks-moon.github.io/JS-practice/first%20class/1-div%20change%20style.html">控制div属性</a><br>
+	<a href="https://thanks-moon.github.io/JS-practice/first%20class/1-div%20change%20style.html">控制div属性</a><br>
+	<a href="https://thanks-moon.github.io/JS-practice/first%20class/1-div%20change%20style.html">控制div属性</a><br>
+	<a href="https://thanks-moon.github.io/JS-practice/first%20class/1-div%20change%20style.html">控制div属性</a><br>
+</body>
+</html>
