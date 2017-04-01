@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>yure</title>
+	<style type="text/css">
+		.zhezhao { width:100%; height:100%; background-color:#000; filter:alpha(opacity=70);  opacity:0.7; position:absolute; left:0px; top:0px; display:none; z-index:800; }
+		h1{font-size: 16px;}
+		h1 button{
+			width: 80px;
+			height: 30px;
+			color: white;
+			background: red;
+			border: none;
+		}
+		#demo{
+			width: 100px;
+			height: 100px;
+			border: 2px solid black;
+		}
+		#set{
+			width: 340px;
+			height: 250px;
+			border: 25px solid rgba(156,148,156,0.8);
+			background-color: white;
+			padding: 15px 25px;
+			font-size: 16px;
+			display: none;
+			position: absolute;
+			top: 150px;
+			left: 450px;
+			z-index: 999;
+		}
+		#set p button{
+			display: inline-block;
+			width: 45px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			margin-right: 5px;
+			border: 1px solid #c4c4c4;
+			background-color: #efefef;
+			color: #8d838a;
+			cursor: pointer;
+		}
+		#set p button:hover{
+			background-color: orange;
+		}
+ 		#set p button#toRed{
+			background-color: #9cce00;
+			color: white;
+		}
+		#set p button#toYellow{
+			background-color: #efbd00;
+			color: #fcf300;
+		}
+		#set p button#toBlue{
+			background-color: #5a94ef;
+			color: white;
+		}
+		#set p button#toRed:hover{
+			background-color: red;
+			border: 1px solid black;
+		}
+		#set p button#toYellow:hover{
+			background-color: yellow;
+			color: black;
+			border: 1px solid black;
+		}
+		#set p button#toBlue:hover{
+			background-color: blue;
+			border: 1px solid black;
+		}
+		#reset,#ensuer{
+			width: 80px;
+			height: 40px;
+			background-color: #002952;
+			margin-right: 5px;
+			font-size: 16px;
+			color: white;
+			border: none;
+		}
+		#set #reset{
+			margin-left: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var zhezhao=document.getElementById("zhezhao");
+			var oSet=document.getElementById('set');
+			var oDemo=document.getElementById('demo');
+			btn1.onclick=show;
+			ensuer.onclick=hide;
+            reset.onclick=reSet;
+			toRed.onclick=function(){
+				setColor("red");
+			};
+			toYellow.onclick=function(){
+				setColor("yellow");
+			};
+			toBlue.onclick=function(){
+				setColor("blue");
+			};
+			W1.onclick=function(){
+				setWidth("200");
+			};
+			W2.onclick=function(){
+				setWidth("300");
+			};
+			W3.onclick=function(){
+				setWidth("400");
+			};
+			H1.onclick=function(){
+				setHeight("200");
+			};
+			H2.onclick=function(){
+				setHeight("300");
+			};
+			H3.onclick=function(){
+				setHeight("400");
+			};
+			function show() {
+				set.style.display="block";
+				zhezhao.style.display="block";
+			}
+			function hide() {
+				set.style.display="none";
+				zhezhao.style.display="none";
+			}
+			function setColor(color,element){
+				oDemo.style.backgroundColor=color;
+			}
+			function setWidth(width) {
+				oDemo.style.width=width+"px";
+			}
+			function setHeight(height) {
+				oDemo.style.height=height+"px";
+			}
+			function reSet() {
+				oDemo.style.backgroundColor="white";
+				oDemo.style.width="100px";
+				oDemo.style.height="100px";
+			}
+		};
+
+	</script>
+</head>
+<body>
+    <div class="zhezhao" id="zhezhao"></div>
+	<h1>请为下面的DIV设置样式:<button id="btn1">点击设置</button></h1>
+	<div id="demo"></div>
+	<div id="set">
+		<p>请选择背景色: <button id="toRed">红</button><button id="toYellow">黄</button><button id="toBlue">蓝</button></p>
+		<p>请选择宽(px): <button id="W1">200</button><button id="W2">300</button><button id="W3">400</button></p>
+		<p>请选择高(px): <button id="H1">200</button><button id="H2">300</button><button id="H3">400</button></p>
+		<button id="reset">恢复</button><button id="ensuer">确定</button>
+	</div>
+</body>
+</html>

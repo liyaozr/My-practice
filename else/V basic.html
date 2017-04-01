@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动生成V字基础版</title>
+	<style type="text/css">
+		li{position: absolute;width: 50px;height: 50px;list-style: none;background: red;color: white;text-align: center;line-height: 50px;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var aBtn=document.getElementsByTagName('input')[0];
+			var str="";
+			var aLi=document.getElementsByTagName('li');
+			var onOff=true;
+			aBtn.onclick=function(){
+				if (onOff) {
+					for(var i=0;i<5;i++){
+						str += "<li></li>";
+					}
+					document.body.innerHTML+=str;
+					for( var j=0; j<aLi.length; j++ ){
+					    aLi[j].style.left=10+50*j+"px";
+						if (j<aLi.length/2) {
+							aLi[j].style.top=40+50*j+"px";
+						}else{
+							aLi[j].style.top=(aLi.length-j)*50-10+"px";
+						}
+						aLi[j].innerHTML=j;
+						}
+				}
+				onOff=false;
+			};
+		};
+	</script>
+</head>
+<body>
+    <input type="button" value="自动生成10个li" /><br>
+</body>
+</html>

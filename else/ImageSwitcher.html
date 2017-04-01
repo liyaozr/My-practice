@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<style type="text/css">
+	    #head{margin: 20px auto 0;width: 400px;text-align: center;}
+		#wrap{margin: 20px auto 0;width: 400px;height:300px;position: relative;border: 5px dashed lightgray;text-align: center;}
+		#btn1{margin-right: 20px;}
+		a{height: 60px;width: 20px;line-height: 60px;opacity: 0.2;background: black;color: white;border: none;position: absolute;top:110px; text-decoration: none;}
+		a:hover{opacity: 0.8;}
+		#prev{left: 0;}
+		#next{right: 0;}
+		#wrap p,span{position: absolute;left: 0px;height: 30px;line-height: 30px;background: black;color: rgb(173, 221, 33);opacity: 0.5;margin: 0;width: 100%;}
+		span{top: 0;}
+		p{bottom: 0;}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var oTxt1=document.getElementById('text1');
+		var oPrev=document.getElementById('prev');
+		var oNext=document.getElementById('next');
+		var oTxt2=document.getElementById('text2');
+		var oImg=document.getElementById('img');
+		var oSpan=document.getElementById('span1');
+		var arr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+		var str=["心之所向","素履所往","坐等岁月老","秋心思梦凉","陌上颜如玉"];
+		var num=0;
+		var onOff=true;
+		//初始化界面
+		function switcher() {
+			oImg.src=arr[num];
+			oTxt2.innerHTML=str[num];
+			oSpan.innerHTML=num+1+"/"+arr.length;
+		}
+		switcher();
+/*			我的尝试：失败
+        难点：不知道如何判断点了哪个按钮，以及循环播放和顺序播放如何判断？
+        思路：没有开关就创造开关，if中嵌套if
+        oBtn1.onclick=function () {
+			oTxt1.innerHTML="图片将循环播放";
+			//封装函数
+			oPrev.onclick=function () {
+				num--;
+				if (num === -1) {
+					num=arr.length-1
+				}
+				switcher();
+			};
+			oNext.onclick=function () {
+				num++;
+				if (num === arr.length) {
+					num=0;
+				}
+				switcher();
+			};
+		}
+		oBtn2.onclick=function () {
+			oTxt1.innerHTML="图片按顺序播放，且只能播放到第一张或者最后一张";
+			//封装函数
+			oPrev.onclick=function () {
+				num--;
+				if (num === -1) {
+					alert("已经到第一张了")；
+				}
+				switcher();
+			};
+			oNext.onclick=function () {
+				num++;
+				if (num === arr.length) {
+					alert("已经到最后一张了")
+				}
+				switcher();
+			};
+		}*/
+       oBtn1.onclick=function () {
+       	onOff=true;
+       	oTxt1.innerHTML="图片将循环播放";
+       };
+       oBtn2.onclick=function () {
+       	onOff=false;
+       	oTxt1.innerHTML="图片按顺序播放，且只能播放到第一张或者最后一张";
+       };
+       oPrev.onclick=function () {
+       	num--;
+       	if (num === -1) {
+       		if (onOff==true) {
+       			num=arr.length-1;
+       		}else{
+           		alert("已经到第一张啦");
+           		num=0;
+       	    }
+       	}
+       	switcher();
+       };
+       oNext.onclick=function () {
+       	num++;
+       	if (num === arr.length) {
+       		if (onOff==true) {
+       			num=0;
+       		}else{
+           	    alert("已经到最后一张啦");
+           	    num=arr.length-1;
+           	}
+       	}
+       	switcher();
+       };
+	};
+</script>
+</head>
+<body>
+    <div id="head">
+		<input id="btn1" type="button" value="循环播放">
+		<input id="btn2" type="button" value="顺序播放">
+		<p id="text1">图片将循环播放</p>
+	</div>
+    <div id="wrap">
+		<img src="" alt="" id="img">
+		<a id="prev" href="javascript:;">&#60;</a>
+		<a id="next" href="javascript:;">&#62;</a>
+        <p id="text2">文字正在加载中</p>
+        <span id="span1">图片数量正在加载中</span>
+	</div>
+</body>
+</html>
