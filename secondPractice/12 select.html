@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    *{margin: 0;padding: 0;font-size: 12px;text-align: center;}
+		#wrap{background: #fafafa;width: 90px;height: 360px;border: 1px solid #000;margin: 30px auto;padding: 0 20px;}
+		#wrap div{height: 50px;line-height: 50px;border-bottom: 1px solid black;text-align: left;}
+		#wrap .icon{vertical-align:middle; margin-top:-1px; margin-bottom:1px;}
+		#wrap div span{color: #5bc1fc;cursor: pointer;}
+		#wrap ul{list-style: none;}
+		#wrap ul li{height: 30px;line-height: 30px;text-align: left;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oCheck = document.getElementById('check');
+			var oTxt = document.getElementsByTagName('strong')[0];
+			var oNo = document.getElementsByTagName('span')[0];
+			var oList = document.getElementById('list');
+			var aInput = oList.getElementsByTagName('input');
+			oCheck.onclick = function () {
+					for (var i = 0; i < aInput.length; i++) {
+						aInput[i].checked = this.checked;
+					}
+					oTxt.innerHTML = oTxt.innerHTML=="全不选"?"全选":"全不选";
+			};
+			oNo.onclick = function () {
+				for (var i = 0; i < aInput.length; i++) {
+					aInput[i].checked = aInput[i].checked==true?false:true;
+				}
+				oTxt.innerHTML = oTxt.innerHTML=="全不选"?"全选":"全不选";
+			};
+		};
+		// 写到这里便卡住了。。这个反选应该怎么写
+		
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div><label><input type="checkbox" class="icon" id="check"><strong> 全选</strong></label><span> 反选</span></div>
+		<ul id="list">
+			<li><input type="checkbox" class="icon" checked=false;> 选项（一）</li>
+			<li><input type="checkbox" class="icon"> 选项（二）</li>
+			<li><input type="checkbox" class="icon"> 选项（三）</li>
+			<li><input type="checkbox" class="icon"> 选项（四）</li>
+			<li><input type="checkbox" class="icon"> 选项（五）</li>
+			<li><input type="checkbox" class="icon"> 选项（六）</li>
+			<li><input type="checkbox" class="icon"> 选项（七）</li>
+			<li><input type="checkbox" class="icon"> 选项（八）</li>
+			<li><input type="checkbox" class="icon"> 选项（九）</li>
+			<li><input type="checkbox" class="icon"> 选项（十）</li>
+		</ul>
+	</div>
+	<p>1、切换全选/全不选文字；2、根据选中个数更新全选框状态；</p>
+</body>
+</html>

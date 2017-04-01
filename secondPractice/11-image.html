@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移过，修改图片路径</title>
+	<style type="text/css">
+	    html,body,div,img{margin: 0;padding: 0;}
+		#wrap{width: 280px;height: 280px;margin: 30px auto;overflow: hidden;background: #000;padding: 10px 0 0  10px}
+		#wrap img {float: left;margin-right: 10px;margin-bottom: 10px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oMain = document.getElementById('main');
+			var aIcon = document.getElementsByTagName('img');
+			for (var i = 1; i < aIcon.length; i++) {
+				aIcon[i].onmouseover = function () {
+					oMain.src=this.src;
+				};
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<img src="image/a.jpg" style="width: 200px;height: 200px;" id="main">
+		<img src="image/b.jpg" style="width: 60px;height: 60px" class="icon">
+		<img src="image/c.jpg" style="width: 60px;height: 60px" class="icon">
+		<img src="image/d.jpg" style="width: 60px;height: 60px" class="icon">
+		<img src="image/e.jpg" style="width: 60px;height: 60px" class="icon">
+		<img src="image/f.jpg" style="width: 60px;height: 60px" class="icon">
+		<img src="image/g.jpg" style="width: 60px;height: 60px" class="icon">
+		<img src="image/h.jpg" style="width: 60px;height: 60px" class="icon">
+	</div>
+</body>
+</html>
