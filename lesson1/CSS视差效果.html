@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS视差效果</title>
+	<style type="text/css">
+	   *{
+	   	font-size: 40px;
+	   	margin: 0;
+	   	padding: 0;
+	   }
+		body{
+			background-image: url(img/bg-rear.gif);
+			background-repeat: repeat-x;
+			background-color: #d3ff99;
+			background-position: 20% 0;
+		}
+		.midground{
+			background-image: url(img/bg-mid.png);
+			background-repeat: repeat-x;
+			background-color: transparent;
+			background-position: 40% 0;
+		}
+		.foreground{
+			background-image: url(img/bg-front.png);
+			background-repeat: repeat-x;
+			background-color: transparent;
+			background-position: 150% 0;
+		}
+		p{
+			padding-top: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="midground">
+		<div class="foreground">
+			<p>Your content will go here.</p>
+		</div>
+	</div>
+</body>
+</html>

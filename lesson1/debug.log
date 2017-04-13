@@ -1,0 +1,2 @@
+[0412/200809.982:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0412/200822.665:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
