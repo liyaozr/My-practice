@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css轮播图</title>
+	<style type="text/css">
+		/*css reset start*/
+		*{margin:0;padding:0;}
+		ul,li{list-style:none;}
+
+		/*css reset end*/
+
+		/*css public start*/
+		.floatfix{*zoom:1;}
+		.floatfix:after{content:"";display:table;clear:both;}
+
+		/*css public end*/
+
+		/*slider start*/
+		.slider-contaner{width:40%;position:relative;}
+		.slider-item + .slider-item{opacity:0;}
+		.slider-item{width:100%;position:absolute;animation-timing-function:linear;animation-name:fade;animation-iteration-count:infinite;background-size:100%;}
+		.focus-container{position:absolute;z-index:7;margin:0 auto;left:0;right:0;}
+		.focus-container li{width:10px;height:10px;border-radius:50%;float:left;margin-right:10px;background:#fff;}
+		.focus-item{width:100%;height:100%;border-radius:inherit;animation-timing-function:linear;animation-name:fade;animation-iteration-count:infinite;}
+		.focus-item2,.focus-item3,.focus-item4,.focus-item5{opacity:0;}
+		.focus-container ul{margin-left:46%;}
+
+		/*设置轮播焦点的位置*/
+		.focus-container{bottom:2%;}
+
+		/*设置当前图片焦点的颜色*/
+		.focus-item{background:#51B1D9;}
+
+		/*设置动画，请根据实际需要修改秒数*/
+		.slider-item,.focus-item{animation-duration:20s;}
+		.slider-item1,.focus-item1{animation-delay:-1s;}
+		.slider-item2,.focus-item2{animation-delay:3s;}
+		.slider-item3,.focus-item3{animation-delay:7s;}
+		.slider-item4,.focus-item4{animation-delay:11s;}
+		.slider-item5,.focus-item5{animation-delay:15s;}
+		@keyframes fade{
+			0%{opacity:0;z-index:2;}
+			5%{opacity:1;z-index:1;}
+			20%{opacity:1;z-index:1;}
+			25%{opacity:0;z-index:0;}
+			100%{opacity:0;z-index:0;}
+		}
+
+		/*设置背景，响应式请利用媒体查询根据断点修改路径*/
+		.slider-item1{background-image:url(img/1.jpg);}
+		.slider-item2{background-image:url(img/2.jpg);}
+		.slider-item3{background-image:url(img/3.jpg);}
+		.slider-item4{background-image:url(img/4.jpg);}
+		.slider-item5{background-image:url(img/5.jpg);}
+
+		/*设置图片的高度，请根据具体需要修改百分比，响应式及时修改此值*/
+		.slider,.slider-item{padding-bottom:75%;}
+	</style>
+</head>
+<body>
+	<section class="slider-contaner">
+	<ul class="slider">
+	<li class="slider-item slider-item1"></li>
+	<li class="slider-item slider-item2"></li>
+	<li class="slider-item slider-item3"></li>
+	<li class="slider-item slider-item4"></li>
+	<li class="slider-item slider-item5"></li>
+	</ul>
+	<div class="focus-container">
+	<ul class="floatfix">
+	<li><div class="focus-item focus-item1"></div></li>
+	<li><div class="focus-item focus-item2"></div></li>
+	<li><div class="focus-item focus-item3"></div></li>
+	<li><div class="focus-item focus-item4"></div></li>
+	<li><div class="focus-item focus-item5"></div></li>
+	</ul>
+	</div>
+	</section>
+</body>
+</html>
